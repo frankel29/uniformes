@@ -57,7 +57,6 @@
 
     <div class="container mt-4">
         <div class="row">
-            @foreach([1, 2, 3, 4, 5] as $uniform)
                 <div class="col-md-4 mb-4">
                     <div class="card">
                         <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Uniforme {{ $uniform }}">
@@ -69,7 +68,6 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
         </div>
     </div>
 
