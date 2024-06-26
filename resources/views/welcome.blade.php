@@ -33,7 +33,6 @@
         <nav class="flex justify-center space-x-4 py-4 border-b">
             <button class="btn btn-link">Colegios</button>
             <button class="btn btn-link">Uniformes</button>
-            <button class="btn btn-link">Tallas</button>
             <button class="btn btn-link">Acerca de</button>
             <button class="btn btn-link">Contacto</button>
         </nav>
@@ -45,16 +44,9 @@
                 <div class="card-body">
                     <img src="../Imagenes/Ramon Barbara Naranjo.png" alt="Unidad educativa Ramón Barba Naranjo">
                     <p>Descripción</p>
-                    <select class="form-select">
-                        <option value="" disabled selected>Tallas</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary">Agregar</button>
+                    <button class="btn btn-primary">Ir</button>
                 </div>
             </div>
             <div class="card text-center">
@@ -64,16 +56,9 @@
                 <div class="card-body">
                     <img src="../Imagenes/Unidad educativa Primero de Abril.jpg" alt="Unidad educativa Primero de Abril">
                     <p>Descripción</p>
-                    <select class="form-select">
-                        <option value="" disabled selected>Tallas</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary">Agregar</button>
+                    <button class="btn btn-primary">Ir</button>
                 </div>
             </div>
             <div class="card text-center">
@@ -83,16 +68,9 @@
                 <div class="card-body">
                     <img src="../Imagenes/Unidad educativa Isidro Ayora.jpg" alt="Unidad educativa Isidro Ayora">
                     <p>Descripción</p>
-                    <select class="form-select">
-                        <option value="" disabled selected>Tallas</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary">Agregar</button>
+                    <button class="btn btn-primary">Ir</button>
                 </div>
             </div>
             <div class="card text-center">
@@ -102,16 +80,9 @@
                 <div class="card-body">
                     <img src="../Imagenes/Unidad educativa Victoria Vascones Cuvi.jpg" alt="Unidad educativa Victoria Vascones Cuvi">
                     <p>Descripción</p>
-                    <select class="form-select">
-                        <option value="" disabled selected>Tallas</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary">Agregar</button>
+                    <button class="btn btn-primary">Ir</button>
                 </div>
             </div>
             <div class="card text-center">
@@ -121,16 +92,9 @@
                 <div class="card-body">
                     <img src="../Imagenes/Unidad educativa Vicente Leon.jpg" alt="Unidad educativa Vicente León">
                     <p>Descripción</p>
-                    <select class="form-select">
-                        <option value="" disabled selected>Tallas</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary">Agregar</button>
+                    <button class="btn btn-primary">Ir</button>
                 </div>
             </div>
             <div class="card text-center">
@@ -140,16 +104,9 @@
                 <div class="card-body">
                     <img src="../Imagenes/Unidad educativa Hermano Miguel.jpg" alt="Unidad educativa Hermano Miguel">
                     <p>Descripción</p>
-                    <select class="form-select">
-                        <option value="" disabled selected>Tallas</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary">Agregar</button>
+                    <button class="btn btn-primary">Ir</button>
                 </div>
             </div>
             <div class="card text-center">
@@ -159,16 +116,9 @@
                 <div class="card-body">
                     <img src="../Imagenes/Unidad educativa La Salle.png" alt="Unidad educativa La Salle">
                     <p>Descripción</p>
-                    <select class="form-select">
-                        <option value="" disabled selected>Tallas</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary">Agregar</button>
+                    <button class="btn btn-primary">Ir</button>
                 </div>
             </div>
             <div class="card text-center">
@@ -178,16 +128,9 @@
                 <div class="card-body">
                     <img src="../Imagenes/Unidad educativa Luis Fernando Ruiz.png" alt="Unidad educativa Luis Fernando Ruiz">
                     <p>Descripción</p>
-                    <select class="form-select">
-                        <option value="" disabled selected>Tallas</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary">Agregar</button>
+                    <button class="btn btn-primary">Ir</button>
                 </div>
             </div>
         </main>
