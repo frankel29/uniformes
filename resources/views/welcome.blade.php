@@ -20,7 +20,7 @@
         <header class="flex items-center justify-between py-4 border-b">
             <div class="flex items-center space-x-4">
                 <div class="avatar">
-                    <img src="../resources/Imagenes/placeholder-user.jpg" alt="Logo" class="rounded-full h-10 w-10">
+                    <img src="../Imagenes/RM logotipo.png" alt="Logo" class="rounded-full h-20 w-20">
                 </div>
                 <input type="search" placeholder="Buscar..." class="form-control w-64">
             </div>
@@ -43,7 +43,7 @@
                     <h5 class="card-title">Unidad educativa Ramón Barba Naranjo</h5>
                 </div>
                 <div class="card-body">
-                    <img src="../resources/Imagenes/Ramon Barbara Naranjo.png" alt="Unidad educativa Ramón Barba Naranjo">
+                    <img src="../Imagenes/Ramon Barbara Naranjo.png" alt="Unidad educativa Ramón Barba Naranjo">
                     <p>Descripción</p>
                     <select class="form-select">
                         <option value="" disabled selected>Tallas</option>
@@ -62,7 +62,7 @@
                     <h5 class="card-title">Unidad educativa Primero de Abril</h5>
                 </div>
                 <div class="card-body">
-                    <img src="../resources/Imagenes/Unidad Educativa Primero de Abril.jpg" alt="Unidad educativa Primero de Abril">
+                    <img src="../Imagenes/Unidad educativa Primero de Abril.jpg" alt="Unidad educativa Primero de Abril">
                     <p>Descripción</p>
                     <select class="form-select">
                         <option value="" disabled selected>Tallas</option>
@@ -81,7 +81,7 @@
                     <h5 class="card-title">Unidad educativa Isidro Ayora</h5>
                 </div>
                 <div class="card-body">
-                    <img src="../resources/Imagenes/Unidad educativa Isidro Ayora.jpg" alt="Unidad educativa Isidro Ayora">
+                    <img src="../Imagenes/Unidad educativa Isidro Ayora.jpg" alt="Unidad educativa Isidro Ayora">
                     <p>Descripción</p>
                     <select class="form-select">
                         <option value="" disabled selected>Tallas</option>
@@ -100,7 +100,7 @@
                     <h5 class="card-title">Unidad educativa Victoria Vascones Cuvi</h5>
                 </div>
                 <div class="card-body">
-                    <img src="../resources/Imagenes/Unidad educativa Victoria Vascones Cuvi.jpg" alt="Unidad educativa Victoria Vascones Cuvi">
+                    <img src="../Imagenes/Unidad educativa Victoria Vascones Cuvi.jpg" alt="Unidad educativa Victoria Vascones Cuvi">
                     <p>Descripción</p>
                     <select class="form-select">
                         <option value="" disabled selected>Tallas</option>
@@ -119,7 +119,7 @@
                     <h5 class="card-title">Unidad educativa Vicente León</h5>
                 </div>
                 <div class="card-body">
-                    <img src="../resources/Imagenes/Unidad educativa Vicente Leon.jpg" alt="Unidad educativa Vicente León">
+                    <img src="../Imagenes/Unidad educativa Vicente Leon.jpg" alt="Unidad educativa Vicente León">
                     <p>Descripción</p>
                     <select class="form-select">
                         <option value="" disabled selected>Tallas</option>
@@ -138,7 +138,7 @@
                     <h5 class="card-title">Unidad educativa Hermano Miguel</h5>
                 </div>
                 <div class="card-body">
-                    <img src="../resources/Imagenes/Unidad educativa Hermano Miguel.jpg" alt="Unidad educativa Hermano Miguel">
+                    <img src="../Imagenes/Unidad educativa Hermano Miguel.jpg" alt="Unidad educativa Hermano Miguel">
                     <p>Descripción</p>
                     <select class="form-select">
                         <option value="" disabled selected>Tallas</option>
@@ -157,7 +157,7 @@
                     <h5 class="card-title">Unidad educativa La Salle</h5>
                 </div>
                 <div class="card-body">
-                    <img src="../resources/Imagenes/Unidad educativa La Salle.png" alt="Unidad educativa La Salle">
+                    <img src="../Imagenes/Unidad educativa La Salle.png" alt="Unidad educativa La Salle">
                     <p>Descripción</p>
                     <select class="form-select">
                         <option value="" disabled selected>Tallas</option>
@@ -176,7 +176,7 @@
                     <h5 class="card-title">Unidad educativa Luis Fernando Ruiz</h5>
                 </div>
                 <div class="card-body">
-                    <img src="../resources/Imagenes/Unidad educativa Luis Fernando Ruiz.png" alt="Unidad educativa Luis Fernando Ruiz">
+                    <img src="../Imagenes/Unidad educativa Luis Fernando Ruiz.png" alt="Unidad educativa Luis Fernando Ruiz">
                     <p>Descripción</p>
                     <select class="form-select">
                         <option value="" disabled selected>Tallas</option>
