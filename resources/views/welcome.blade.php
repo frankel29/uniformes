@@ -19,28 +19,33 @@
 
 <body>
     <div class="container mx-auto p-4">
-        <header class="flex items-center justify-between py-4 border-b">
-            <div class="flex items-center space-x-4">
-                <div class="avatar">
-                    <img src="{{ asset('images/RM logotipo.png') }}" alt="Logo" class="rounded-full h-20 w-20">
-                </div>
-                <input type="search" placeholder="Buscar..." class="form-control w-64">
+    <header class="flex items-center justify-between py-4 border-b bg-blue-500 w-full">
+    <div class="container mx-auto flex items-center justify-between px-4">
+        <div class="flex items-center space-x-4">
+            <div class="avatar">
+                <img src="{{ asset('images/RM logotipo.png') }}" alt="Logo" class="rounded-full h-20 w-20">
             </div>
-            <div class="flex items-center space-x-4">
-                <button class="btn btn-outline-secondary">Mis Compras</button>
-                @auth
-                <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Home</a>
-                @else
-                <a href="{{ route('login') }}" class="btn btn-outline-secondary">Login</a>
-                @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
-                @endif
-                @endauth
-            </div>
-        </header>
+            <input type="search" placeholder="Buscar..." class="form-control w-64">
+        </div>
+        <div class="flex items-center space-x-4">
+            <button class="btn btn-light">Mis Compras</button>
+            @auth
+            <a href="{{ url('/home') }}" class="btn btn-light">Home</a>
+            @else
+            <a href="{{ route('login') }}" class="btn btn-light">Login</a>
+            @if (Route::has('register'))
+            <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
+            @endif
+            @endauth
+        </div>
+    </div>
+    </header>
+    <div class="container mx-auto mt-4">
+    <img src="{{ asset('images/Descuentos.png') }}" alt="Descuentos" class="mx-auto max-w-full h-auto" style="max-width: 400px;">
+    </div>
+
         <nav class="flex justify-center space-x-4 py-4 border-b">
             <button class="btn btn-link">Colegios</button>
-            <button class="btn btn-link">Uniformes</button>
             <button class="btn btn-link">Acerca de</button>
             <button class="btn btn-link">Contacto</button>
         </nav>
@@ -146,5 +151,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
-
+<footer class="bg-gray-900 text-white py-4">
+    <div class="container mx-auto text-center">
+        <p>RM Sport &copy; {{ date('Y') }}. Todos los derechos reservados.</p>
+    </div>
+</footer>
 </html>
