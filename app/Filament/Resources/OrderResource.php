@@ -45,31 +45,32 @@ class OrderResource extends Resource
                     Section::make('Informacion_de_la_orden')
                     ->schema([
                         Select::make('user_id')
-                            ->label('Cliente')
+                            ->label('Customer')
                             ->relationship('user', 'name')
                             ->searchable()
                             ->preload()
                             ->required(),
                         
-                            Select::make('metodo_de_pago')
+                            Select::make('payment_method')
                             ->options([
                                 'stripe'=> 'Stripe',
                                 'cod'=> 'Cash on Delivery'
                             ])
                             ->required(),
             
-                            Select::make('estado_del_pago')
+                            Select::make('payment_status')
                             ->options([
                                 'pending'=>'Pendiente',
                                 'paid'=>'Pagado',
                                 'failed'=>'Fallido'
                             ])
-            
                             ->default('pending')
                             ->required(),
-                            ToggleButtons::make('Estado')
+
+                            ToggleButtons::make('status')
                             ->inline()
                             ->default('new')
+                            ->required()
                             ->options([
                                 'new'=> 'Nuevo',
                                 'processing'=>'Procesando',
@@ -91,7 +92,8 @@ class OrderResource extends Resource
                                 'shipped'=>'heroicon-m-check-badge',
                                 'cancelled'=>'heroicon-m-x-circle'
                             ]),
-                            Select::make('Moneda')
+
+                            Select::make('currency')
                                 ->options([
                                 'inr'=>'INR',
                                 'usd'=>'USD',
@@ -101,7 +103,7 @@ class OrderResource extends Resource
                             ->default('usd')
                             ->required(),
 
-                            Select::make('Metodo de envio')
+                            Select::make('shipping_method')
                             ->options([
                                 'fedex'=>'FedEx',
                                 'ups'=>'UPS',
@@ -110,7 +112,7 @@ class OrderResource extends Resource
 
                             ]),
 
-                            Textarea::make('Nota')
+                            Textarea::make('notes')
                             ->columnSpanFull()
                     ])->columns(2),
 
@@ -119,8 +121,9 @@ class OrderResource extends Resource
                         ->relationship()
                         ->schema([
                             Select::make('product_id')
-                            ->relationship('Producto', 'name')
+                            ->relationship('product', 'name')
                             ->searchable()
+                            ->preload()
                             ->required()
                             ->distinct()
                             ->disableOptionsWhenSelectedInSiblingRepeaterItems()
@@ -135,7 +138,6 @@ class OrderResource extends Resource
                             ->default(1)
                             ->minValue(1)
                             ->columnSpan(2)
-                            ->reactive()
                             ->reactive()
                             ->afterStateUpdated(fn ($state, Set $set, Get $get) => $set('total_amount',$state*$get
                             ('unit_amount'))),
