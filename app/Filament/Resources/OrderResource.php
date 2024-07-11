@@ -195,7 +195,7 @@ class OrderResource extends Resource
                 ->sortable()
                 ->money('USD'),
 
-                TextColumn::make('metodo_de_pago') 
+                TextColumn::make('payment_method') 
                 ->sortable()
                 ->searchable(),
 
