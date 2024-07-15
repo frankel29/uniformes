@@ -20,6 +20,11 @@ use App\Filament\Resources\UserResource\Pages\ListUsers;
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
+    protected static ?int $navigationSort = 1;
+
+
+    protected static ?string $recordTitleAttribute = 'name';
+
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
@@ -84,6 +89,10 @@ class UserResource extends Resource
         ];
     }
 
+    public static function getGloballySearchableAttributes(): array {
+        return ['name', 'email'];
+    }
+    
     public static function getPages(): array
     {
         return [
