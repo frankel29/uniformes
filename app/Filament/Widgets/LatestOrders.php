@@ -25,16 +25,19 @@ class LatestOrders extends BaseWidget
             ->defaultSort('created_at', 'desc')        
             ->columns([
                 TextColumn::make('id')
-                    ->label('Order ID')
+                    ->label('ID de Pedido')
                     ->searchable(),
 
 
                     TextColumn::make('user.name')
+                    ->label('Usuario')
                     ->searchable(),
 
                 TextColumn::make('grand_total')
-                    ->money('INR'),
+                ->label('Total Pedido')
+                    ->money('USD'),
                 TextColumn::make('status')
+                    ->label('Estado')
                     ->badge()
                     ->color(fn(string $state): string => match ($state) {
                         'new' => 'info',
@@ -51,15 +54,15 @@ class LatestOrders extends BaseWidget
                         'cancelled' => 'heroicon-o-x-circle'
                     })
                     ->sortable(),
-                TextColumn::make('payment_method')
+                /*TextColumn::make('payment_method')
                     ->sortable()
-                    ->searchable(),
-                TextColumn::make('payment_status')
+                    ->searchable(),*/
+                /*TextColumn::make('payment_status')
                     ->sortable()
                     ->badge()
-                    ->searchable(),
+                    ->searchable(),*/
                 TextColumn::make('created_at')
-                    ->label('Order Date')
+                    ->label('Creación Pedido')
                     ->dateTime(),
             ])
             ->actions([
