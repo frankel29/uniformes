@@ -42,151 +42,145 @@ class OrderResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-        ->schema([
-            Group::make()->schema([
-                Section::make('Información de la orden')
+            ->schema([
+                Group::make()->schema([
+                    Section::make('Informacion_de_la_orden')
                     ->schema([
                         Select::make('user_id')
-                            ->label('Cliente')
+                            ->label('Customer')
                             ->relationship('user', 'name')
                             ->searchable()
                             ->preload()
                             ->required(),
                         
-                        Select::make('payment_method')
-                            ->label('Método de pago')
+                            Select::make('payment_method')
                             ->options([
-                                'stripe' => 'Stripe',
-                                'cod' => 'Contra reembolso'
+                                'stripe'=> 'Stripe',
+                                'cod'=> 'Cash on Delivery'
                             ])
                             ->required(),
-        
-                        Select::make('payment_status')
-                            ->label('Estado de pago')
+            
+                            Select::make('payment_status')
                             ->options([
-                                'pending' => 'Pendiente',
-                                'paid' => 'Pagado',
-                                'failed' => 'Fallido'
+                                'pending'=>'Pendiente',
+                                'paid'=>'Pagado',
+                                'failed'=>'Fallido'
                             ])
                             ->default('pending')
                             ->required(),
-        
-                        ToggleButtons::make('status')
-                            ->label('Estado')
+
+                            ToggleButtons::make('status')
                             ->inline()
                             ->default('new')
                             ->required()
                             ->options([
-                                'new' => 'Nuevo',
-                                'processing' => 'Procesando',
-                                'delivered' => 'Entregado',
-                                'shipped' => 'Enviado',
-                                'cancelled' => 'Cancelado'
+                                'new'=> 'Nuevo',
+                                'processing'=>'Procesando',
+                                'delivered'=>'Entregado',
+                                'shipped'=>'Enviado',
+                                'cancelled'=>'Cancelado'
                             ])
                             ->colors([
-                                'new' => 'info',
-                                'processing' => 'warning',
-                                'delivered' => 'success',
-                                'shipped' => 'success',
-                                'cancelled' => 'danger'
+                                'new'=> 'info',
+                                'processing'=>'warning',
+                                'delivered'=>'success',
+                                'shipped'=>'success',
+                                'cancelled'=>'danger'
                             ])
                             ->icons([
-                                'new' => 'heroicon-m-sparkles',
-                                'processing' => 'heroicon-m-arrow-path',
-                                'delivered' => 'heroicon-m-truck',
-                                'shipped' => 'heroicon-m-check-badge',
-                                'cancelled' => 'heroicon-m-x-circle'
+                                'new'=> 'heroicon-m-sparkles',
+                                'processing'=>'heroicon-m-arrow-path',
+                                'delivered'=>'heroicon-m-truck',
+                                'shipped'=>'heroicon-m-check-badge',
+                                'cancelled'=>'heroicon-m-x-circle'
                             ]),
-        
-                        Select::make('currency')
-                            ->label('Moneda')
-                            ->options([
-                                'inr' => 'INR',
-                                'usd' => 'USD',
-                                'eur' => 'EUR',
-                                'gbp' => 'GBP'
+
+                            Select::make('currency')
+                                ->options([
+                                'inr'=>'INR',
+                                'usd'=>'USD',
+                                'eur'=>'EUR',
+                                'gbp'=>'GBP'
                             ])
                             ->default('usd')
                             ->required(),
-        
-                        Select::make('shipping_method')
-                            ->label('Método de envío')
+
+                            Select::make('shipping_method')
                             ->options([
-                                'fedex' => 'FedEx',
-                                'ups' => 'UPS',
-                                'dhl' => 'DHL',
-                                'usps' => 'USPS'
+                                'fedex'=>'FedEx',
+                                'ups'=>'UPS',
+                                'dhl'=>'DHl',
+                                'usps'=>'USPS'
+
                             ]),
-        
-                        Textarea::make('notes')
-                            ->label('Notas')
+
+                            Textarea::make('notes')
                             ->columnSpanFull()
                     ])->columns(2),
-        
-                Section::make('Artículo Ordenado')->schema([
-                    Repeater::make('items')
-                        ->label('Artículos')
+
+                    Section::make('Articiulo Ordenado')->schema([
+                        Repeater::make('items')
                         ->relationship()
                         ->schema([
                             Select::make('product_id')
-                                ->label('Producto')
-                                ->relationship('product', 'name')
-                                ->searchable()
-                                ->preload()
-                                ->required()
-                                ->distinct()
-                                ->disableOptionsWhenSelectedInSiblingRepeaterItems()
-                                ->columnSpan(4)
-                                ->reactive()
-                                ->afterStateUpdated(fn($state, Set $set) => $set('unit_amount', Product::find($state)?->price ?? 0))
-                                ->afterStateUpdated(fn($state, Set $set) => $set('total_amount', Product::find($state)?->price ?? 0)),
-        
+                            ->relationship('product', 'name')
+                            ->searchable()
+                            ->preload()
+                            ->required()
+                            ->distinct()
+                            ->disableOptionsWhenSelectedInSiblingRepeaterItems()
+                            ->columnSpan(4)
+                            ->reactive()
+                            ->afterStateUpdated(fn ($state, Set $set) => $set('unit_amount', Product::find($state)?->price ?? 0))
+                            ->afterStateUpdated(fn ($state, Set $set) => $set('total_amount', Product::find($state)?->price ?? 0)),
+
                             TextInput::make('quantity')
-                                ->label('Cantidad')
-                                ->numeric()
-                                ->required()
-                                ->default(1)
-                                ->minValue(1)
-                                ->columnSpan(2)
-                                ->reactive()
-                                ->afterStateUpdated(fn($state, Set $set, Get $get) => $set('total_amount', $state * $get('unit_amount'))),
-        
+                            ->numeric()
+                            ->required()
+                            ->default(1)
+                            ->minValue(1)
+                            ->columnSpan(2)
+                            ->reactive()
+                            ->afterStateUpdated(fn ($state, Set $set, Get $get) => $set('total_amount',$state*$get
+                            ('unit_amount'))),
+
                             TextInput::make('unit_amount')
-                                ->label('Precio unitario')
-                                ->numeric()
-                                ->required()
-                                ->disabled()
-                                ->dehydrated()
-                                ->columnSpan(3),
-        
+                            ->numeric()
+                            ->required()
+                            ->disabled()
+                            ->dehydrated()
+                            ->columnSpan(3),
+
                             TextInput::make('total_amount')
-                                ->label('Precio total')
-                                ->numeric()
-                                ->required()
-                                ->dehydrated()
-                                ->columnSpan(3),
+                            ->numeric()
+                            ->required()
+                            ->dehydrated()
+                            ->columnSpan(3),
+
+
+
                         ])->columns(12),
-        
-                    Placeholder::make('grand_total_placeholder')
-                        ->label('Total')
+
+                        Placeholder::make('grand_total_placeholder')
+                        ->label('Grand Total')
                         ->content(function(Get $get, Set $set) {
                             $total = 0;
                             if (!$repeaters = $get('items')) {
-                                return $total;
+                            return $total;
                             }
                             foreach ($repeaters as $key => $repeater) {
                                 $total += $get("items.{$key}.total_amount");
                             }
                             $set('grand_total', $total);
                             return '$' . number_format($total, 2);
-                        }),
-        
-                    Hidden::make('grand_total')
-                        ->default(0)
-                ])
-            ])->columnSpanFull()
-        ]);
-        
+                         }),
+
+                         Hidden::make('grand_total')
+                         ->default(0)
+
+                    ])
+                ])->columnSpanFull()
+            ]);
     }
 
     public static function table(Table $table): Table
