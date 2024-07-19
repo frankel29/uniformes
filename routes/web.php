@@ -14,6 +14,9 @@ use App\Livewire\MyOrdersDetailPage;
 use App\Livewire\Auth\LoginPage;
 use App\Livewire\Auth\RegisterPage;
 use App\Livewire\Auth\ForgotPasswordPage;
+use App\Livewire\Auth\ResetPasswordPage;
+use App\Livewire\SuccessPage;
+use App\Livewire\CancelPage;
 
 Route::get('/', HomePage::class);
 Auth::routes();
@@ -49,3 +52,13 @@ Route::get('/login', LoginPage::class)->name('login');
 
 Route::get('/register', RegisterPage::class)->name('register');
 
+
+Route::get('/reset', ResetPasswordPage::class)->name('password.reset');
+
+Route::get('/forgot', ForgotPasswordPage::class);
+
+
+Route::get('/success', SuccessPage::class);
+
+
+Route::get('/cancel', CancelPage::class);
