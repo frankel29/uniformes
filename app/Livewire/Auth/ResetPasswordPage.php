@@ -4,10 +4,10 @@ namespace App\Livewire\Auth;
 
 use Livewire\Component;
 
-class ResetPaswordPage extends Component
+class ResetPasswordPage extends Component
 {
     public function render()
     {
-        return view('livewire.auth.reset-pasword-page');
+        return view('livewire.auth.reset-password-page');
     }
 }

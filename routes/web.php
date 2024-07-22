@@ -1,5 +1,8 @@
 <?php
 
+use App\Livewire\Auth\ResetPasswordPage;
+use App\Livewire\CancelPage;
+use App\Livewire\SuccessPage;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use App\Http\Controllers\HomeController;
@@ -48,4 +51,13 @@ Route::get('/my-orders/{order}', MyOrdersDetailPage::class)->name('my.orders.det
 Route::get('/login', LoginPage::class)->name('login');
 
 Route::get('/register', RegisterPage::class)->name('register');
+
+Route::get('/forgot', ForgotPasswordPage::class)->name('forgot');
+
+
+Route::get('/reset', ResetPasswordPage::class)->name('reset');
+
+Route::get('/succes', SuccessPage::class)->name('succes');
+
+Route::get('/cancel', CancelPage::class)->name('cancel');
 
