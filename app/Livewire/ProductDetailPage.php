@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\Product; // Asegúrate de importar el modelo Product
+use App\Models\Product; 
 use Livewire\Component;
 use Livewire\Attributes\Title;
 
@@ -18,10 +18,8 @@ class ProductDetailPage extends Component
 
     public function render()
     {
-        $product = Product::where('slug', $this->slug)->firstOrFail(); // Nota: Usa firstOrFail() en lugar de firstOrFall()
-
         return view('livewire.product-detail-page', [
-            'product' => $product,
+            'product' => Product::where('slug', $this->slug)->firstOrFail(),
         ]);
     }
 }
