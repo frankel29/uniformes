@@ -1,8 +1,5 @@
 <?php
 
-use App\Livewire\Auth\ResetPasswordPage;
-use App\Livewire\CancelPage;
-use App\Livewire\SuccessPage;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use App\Http\Controllers\HomeController;
@@ -17,6 +14,9 @@ use App\Livewire\MyOrdersDetailPage;
 use App\Livewire\Auth\LoginPage;
 use App\Livewire\Auth\RegisterPage;
 use App\Livewire\Auth\ForgotPasswordPage;
+use App\Livewire\Auth\ResetPasswordPage;
+use App\Livewire\SuccessPage;
+use App\Livewire\CancelPage;
 
 Route::get('/', HomePage::class);
 Auth::routes();
@@ -37,7 +37,7 @@ Route::get('/products', ProductsPage::class)->name('products');
 Route::get('/cart', CartPage::class)->name('cart');
 
 // Ruta a ProductDetailPage
-Route::get('/products/{product}', ProductDetailPage::class)->name('product.detail');
+Route::get('/products/{slug}', ProductDetailPage::class)->name('product.detail');
 
 Route::middleware('guest')->group(function (){
     Route::get('/login', LoginPage::class)->name('login');
@@ -45,16 +45,7 @@ Route::middleware('guest')->group(function (){
     Route::get('/forgot', ForgotPasswordPage::class)->name('forgot');
     Route::get('/reset', ResetPasswordPage::class)->name('reset');
 
-});
+Route::get('/succes', SuccessPage::class)->name('succes');
 
-Route::middleware('auth')->group(function(){
-    Route::get('/logout', function(){
-        auth()->logout();
-        return redirect('/');
-    });
-    Route::get('/checkout', CheckoutPage::class)->name('checkout');
-    Route::get('/my-orders', MyOrdersPage::class)->name('my.orders');  
-    Route::get('/my-orders/{order}', MyOrdersDetailPage::class)->name('my.orders.detail');
-    Route::get('/succes', SuccessPage::class)->name('succes');
-    Route::get('/cancel', CancelPage::class)->name('cancel');
-});
+Route::get('/cancel', CancelPage::class)->name('cancel');
+
