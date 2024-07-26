@@ -11,30 +11,12 @@
       <!-- End Col -->
 
       <div class="relative ms-4">
-        <img class="w-full rounded-md" src="https://static.vecteezy.com/system/resources/previews/011/993/278/non_2x/3d-render-online-shopping-bag-using-credit-card-or-cash-for-future-use-credit-card-money-financial-security-on-mobile-3d-application-3d-shop-purchase-basket-retail-store-on-e-commerce-free-png.png" alt="Image Description">
+        <img class="w-full rounded-md" src="images\RMlogotipo1.png" alt="Logotipo de la empresa">
         <div class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 w-full h-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:-mb-6 lg:me-6 lg:-ms-6 dark:from-slate-800 dark:via-slate-900/0 dark:to-slate-900/0"></div>
 
         <!-- SVG-->
         <div class="absolute bottom-0 start-0">
-          <svg class="w-2/3 ms-auto h-auto text-white dark:text-slate-900" width="630" height="451" viewBox="0 0 630 451" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="531" y="352" width="99" height="99" fill="currentColor" />
-            <rect x="140" y="352" width="106" height="99" fill="currentColor" />
-            <rect x="482" y="402" width="64" height="49" fill="currentColor" />
-            <rect x="433" y="402" width="63" height="49" fill="currentColor" />
-            <rect x="384" y="352" width="49" height="50" fill="currentColor" />
-            <rect x="531" y="328" width="50" height="50" fill="currentColor" />
-            <rect x="99" y="303" width="49" height="58" fill="currentColor" />
-            <rect x="99" y="352" width="49" height="50" fill="currentColor" />
-            <rect x="99" y="392" width="49" height="59" fill="currentColor" />
-            <rect x="44" y="402" width="66" height="49" fill="currentColor" />
-            <rect x="234" y="402" width="62" height="49" fill="currentColor" />
-            <rect x="334" y="303" width="50" height="49" fill="currentColor" />
-            <rect x="581" width="49" height="49" fill="currentColor" />
-            <rect x="581" width="49" height="64" fill="currentColor" />
-            <rect x="482" y="123" width="49" height="49" fill="currentColor" />
-            <rect x="507" y="124" width="49" height="24" fill="currentColor" />
-            <rect x="531" y="49" width="99" height="99" fill="currentColor" />
-          </svg>
+          
         </div>
         <!-- End SVG-->
       </div>
@@ -49,7 +31,7 @@
   <div class="max-w-xl mx-auto">
     <div class="text-center ">
       <div class="relative flex flex-col items-center">
-        <h1 class="text-5xl font-bold dark:text-gray-200"> Browse Popular<span class="text-blue-500"> Brands
+        <h1 class="text-5xl font-bold dark:text-gray-200"> Conoce los <span class="text-blue-500"> Colegios
           </span> </h1>
         <div class="flex w-40 mt-2 mb-6 overflow-hidden rounded">
           <div class="flex-1 h-2 bg-blue-200">
@@ -60,11 +42,6 @@
           </div>
         </div>
       </div>
-      <p class="mb-12 text-base text-center text-gray-500">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus magni eius eaque?
-        Pariatur
-        numquam, odio quod nobis ipsum ex cupiditate?
-      </p>
     </div>
   </div>
   <div class="justify-center max-w-6xl px-4 py-4 mx-auto lg:py-0">
@@ -88,6 +65,4 @@
     </div>
   </div>
 </section>
-<!-- Categories-->
-
 </div>
