@@ -58,7 +58,7 @@ Route::get('/reset', ResetPasswordPage::class)->name('password.reset');
 Route::get('/forgot', ForgotPasswordPage::class);
 
 
-Route::get('/succes', SuccessPage::class)->name('succes');
+Route::get('/success', SuccessPage::class);
 
-Route::get('/cancel', CancelPage::class)->name('cancel');
 
+Route::get('/cancel', CancelPage::class);
