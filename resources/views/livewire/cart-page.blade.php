@@ -58,7 +58,7 @@
             <span class="font-semibold">Total</span>
             <span class="font-semibold">$21.98</span>
           </div>
-          <a href='/checkout' class="bg-blue-500 block  text-center text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</a>
+          <button class="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</button>
         </div>
       </div>
     </div>
