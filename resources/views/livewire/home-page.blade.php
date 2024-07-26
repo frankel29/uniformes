@@ -227,39 +227,5 @@
     </div>
   </div>
 
-    <!--Brand section -->
-    <section class="py-20">
-        <div class="max-w-xl mx-auto">
-            <div class="text-center ">
-                <div class="relative flex flex-col items-center">
-                    <h1 class="text-5xl font-bold dark:text-gray-200"> Conoce los <span class="text-blue-500"> Colegios </span> </h1>
-                    <div class="flex w-40 mt-2 mb-6 overflow-hidden rounded">
-                        <div class="flex-1 h-2 bg-blue-200"></div>
-                        <div class="flex-1 h-2 bg-blue-400"></div>
-                        <div class="flex-1 h-2 bg-blue-600"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="justify-center max-w-6xl px-4 py-4 mx-auto lg:py-0">
-            <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 md:grid-cols-2">
-              @foreach ($categories as $category)
-              <div class="bg-white rounded-lg shadow-md dark:bg-gray-800" wire:key="{{$category->id}}">
-    <a href="#">
-        <img class="h-[10rem] w-[10rem]" src="{{ asset('storage/' . $category->image) }}" alt="{{$category->name}}">
-    </a>
-    <div class="p-5 text-center">
-        <a href="#" class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
-            {{$category->name}}
-        </a>
-    </div>
-</div>
-
-      @endforeach
-            </div>
-        </div>
-    </section>
-</div>
-=======
 </div>
 </div>
