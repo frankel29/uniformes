@@ -49,9 +49,8 @@
             <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 md:grid-cols-2">
                 @foreach ($categories as $category)
                     <div class="bg-white rounded-lg shadow-md dark:bg-gray-800" wire:key="{{$category->id}}">
-                        <a href="#">
-                            <img class="h-[10rem] w-[10rem]" src="{{ asset('storage/' . $category->image) }}"
-                                alt="{{$category->name}}">
+                        <a href="/products?selected_categories[0]={{ $category->id }}" class="">
+                            <img class="h-[10rem] w-[10rem]" src="{{ asset('storage/' . $category->image) }}" alt="{{$category->name}}">
                         </a>
                         <div class="p-5 text-center">
                             <a href="#" class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
