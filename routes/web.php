@@ -18,43 +18,38 @@ use App\Livewire\Auth\LoginPage;
 use App\Livewire\Auth\RegisterPage;
 use App\Livewire\Auth\ForgotPasswordPage;
 
-Route::get('/', HomePage::class);
+// Rutas públicas
+Route::get('/', HomePage::class)->name('home');
+
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-Livewire::setUpdateRoute(function($handle) {
-    return Route::post('/uniformes/public/livewire/update', $handle);
-});
-
-// Ruta a CategoriesPage
+Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 Route::get('/categories', CategoriesPage::class)->name('categories');
-
-// Ruta a ProductsPage
 Route::get('/products', ProductsPage::class)->name('products');
-
-// Ruta a CartPage
 Route::get('/cart', CartPage::class)->name('cart');
-
-// Ruta a ProductDetailPage
 Route::get('/products/{product}', ProductDetailPage::class)->name('product.detail');
+Route::get('/checkout', CheckoutPage::class)->name('checkout');
 
-Route::middleware('guest')->group(function (){
-    Route::get('/login', LoginPage::class)->name('login');
-    Route::get('/register', RegisterPage::class)->name('register');
-    Route::get('/forgot', ForgotPasswordPage::class)->name('forgot');
-    Route::get('/reset', ResetPasswordPage::class)->name('reset');
+Route::get('/login', LoginPage::class)->name('login');
+Route::get('/register', RegisterPage::class)->name('register');
+Route::get('/reset', ResetPasswordPage::class)->name('password.reset');
+Route::get('/forgot', ForgotPasswordPage::class)->name('password.request');
 
-});
+Route::get('/success', SuccessPage::class)->name('payment.success');
+Route::get('/cancel', CancelPage::class)->name('payment.cancel');
 
+// Rutas protegidas por middleware de autenticación
 Route::middleware('auth')->group(function(){
     Route::get('/logout', function(){
         auth()->logout();
         return redirect('/');
-    });
-    Route::get('/checkout', CheckoutPage::class)->name('checkout');
-    Route::get('/my-orders', MyOrdersPage::class)->name('my.orders');  
+    })->name('logout');
+    
+    Route::get('/my-orders', MyOrdersPage::class)->name('my.orders');
     Route::get('/my-orders/{order}', MyOrdersDetailPage::class)->name('my.orders.detail');
-    Route::get('/succes', SuccessPage::class)->name('succes');
-    Route::get('/cancel', CancelPage::class)->name('cancel');
+});
+
+// Configuración de Livewire
+Livewire::setUpdateRoute(function($handle) {
+    return Route::post('/uniformes/public/livewire/update', $handle);
 });
