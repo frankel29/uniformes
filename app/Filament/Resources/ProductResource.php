@@ -4,19 +4,19 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
-use App\Models\Product;
-use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Forms\set;
-use Filament\Forms\Components\Group;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\MarkdownEditor;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Toggle;
-use Filament\Resources\Resource;
-use Filament\Tables;
+use App\Models\Product; //Product
+use Filament\Forms; //Forms
+use Filament\Forms\Form; //Form
+use Filament\Forms\set; //Set
+use Filament\Forms\Components\Group; //Group
+use Filament\Forms\Components\Section; //Section
+use Filament\Forms\Components\TextInput; //TextInput
+use Filament\Forms\Components\MarkdownEditor; //MarkdownEditor
+use Filament\Forms\Components\FileUpload; //FileUpload
+use Filament\Forms\Components\Select; //Select
+use Filament\Forms\Components\Toggle; //Toogle
+use Filament\Resources\Resource; // Resource
+use Filament\Tables; //Tables
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;

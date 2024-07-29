@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources; //App Filament
 
-use App\Filament\Resources\UserResource\Pages;
+use App\Filament\Resources\UserResource\Pages; //Pages
 use App\Filament\Resources\UserResource\RelationManagers\OrdersRelationManager; // Añade esta línea
-use App\Models\User;
-use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
-use Filament\Tables;
-use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
+use App\Models\User; //User
+use Filament\Forms; //Forms
+use Filament\Forms\Form; //Form
+use Filament\Resources\Resource; //Resource
+use Filament\Tables; // tablas
+use Filament\Tables\Table; //Table
+use Illuminate\Database\Eloquent\Builder; //builder
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Resources\Pages\CreateRecord; 
-use App\Filament\Resources\UserResource\Pages\CreateUser;
-use App\Filament\Resources\UserResource\Pages\EditUser;
-use App\Filament\Resources\UserResource\Pages\ListUsers;
+use Filament\Resources\Pages\CreateRecord; //CreateRecord
+use App\Filament\Resources\UserResource\Pages\CreateUser; //CreateUser
+use App\Filament\Resources\UserResource\Pages\EditUser; //EditUser
+use App\Filament\Resources\UserResource\Pages\ListUsers; //ListUsers
 
 class UserResource extends Resource
 {
