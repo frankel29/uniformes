@@ -14,7 +14,7 @@
                 <!-- End Col -->
 
                 <div class="relative ms-4">
-                    <img class="w-full rounded-md" src="images/RMlogotipo1.png" alt="Logotipo de la empresa">
+                    <img class="w-full rounded-md" src="images/RM logotipo.png" alt="Logotipo de la empresa">
                     <div class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 w-full h-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:-mb-6 lg:me-6 lg:-ms-6 dark:from-slate-800 dark:via-slate-900/0 dark:to-slate-900/0"></div>
 
                     <!-- SVG-->
