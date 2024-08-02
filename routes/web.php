@@ -48,17 +48,11 @@ Route::get('/my-orders', MyOrdersPage::class)->name('my.orders');
 // Ruta a MyOrdersDetailPage
 Route::get('/my-orders/{order}', MyOrdersDetailPage::class)->name('my.orders.detail');
 
+// Rutas para login, registro y recuperación de contraseña
 Route::get('/login', LoginPage::class)->name('login');
-
 Route::get('/register', RegisterPage::class)->name('register');
-
-
 Route::get('/reset', ResetPasswordPage::class)->name('password.reset');
-
-Route::get('/forgot', ForgotPasswordPage::class);
-
-
-});
+Route::get('/forgot', ForgotPasswordPage::class)->name('password.forgot');
 
 Route::middleware('auth')->group(function(){
     Route::get('/logout', function(){
@@ -68,6 +62,6 @@ Route::middleware('auth')->group(function(){
     Route::get('/checkout', CheckoutPage::class)->name('checkout');
     Route::get('/my-orders', MyOrdersPage::class)->name('my.orders');  
     Route::get('/my-orders/{order}', MyOrdersDetailPage::class)->name('my.orders.detail');
-    Route::get('/succes', SuccessPage::class)->name('succes');
+    Route::get('/success', SuccessPage::class)->name('success');
     Route::get('/cancel', CancelPage::class)->name('cancel');
 });
