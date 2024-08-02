@@ -44,9 +44,9 @@ class ProductResource extends Resource
         return $form
             ->schema([
                 Group::make()->schema([
-                    Section::make('Product Information')->schema([
+                    Section::make('Informacion del Producto')->schema([
                         TextInput::make('name') // Cambié 'Nombre' por 'name'
-                        ->label('Name')
+                        ->label('Nombre')
                         ->required()
                         ->maxLength(255)
                         ->live(onBlur: true)
@@ -65,6 +65,7 @@ class ProductResource extends Resource
                         ->unique(Product::class, 'slug', ignoreRecord: true),
     
                         MarkdownEditor::make('description') // Cambié 'Descripción' por 'description'
+                        ->label('Descripción')
                         ->columnSpanFull()
                         ->fileAttachmentsDirectory('products')
     
@@ -72,6 +73,7 @@ class ProductResource extends Resource
     
                     Section::make('Images')->schema([
                         FileUpload::make('images') // Cambié 'Imágenes' por 'images'
+                        ->label('Imagen')
                         ->multiple()
                         ->directory('products')
                         ->maxFiles(5)
@@ -81,12 +83,18 @@ class ProductResource extends Resource
                 Group::make()->schema([
                     Section::make('Price')->schema([
                         TextInput::make('price') // Cambié 'precio' por 'price'
+                        ->label('Precio')
                         ->numeric()
                         ->required()
+                        ->minValue(0) // Valor mínimo permitido
+                        ->maxValue(10000) // Valor máximo permitido
+                        ->rules(['regex:/^\d+(\.\d{1,2})?$/', 'min:0', 'max:10000']) // Reglas de validación para solo números positivos y decimales
                         ->prefix('USD')
+                        
                     ]),
                     Section::make('School')->schema([
                         Select::make('category_id')
+                            ->label('Colegio')
                             ->required()
                             ->searchable()
                             ->preload()
@@ -94,15 +102,19 @@ class ProductResource extends Resource
                     ]),
                     Section::make('Status')->schema([
                         Toggle::make('in_stock') // Cambié 'en_stock' por 'in_stock'
+                        ->label('En Stock')
                         ->required()
                         ->default('true'),
-                        Toggle::make('is_active') // Cambié 'está_activo' por 'is_active'
+                        Toggle::make('is_active')
+                        ->label('Esta Activo') // Cambié 'está_activo' por 'is_active'
                         ->required()
                         ->default('true'),
-                        Toggle::make('is_featured') // Cambié 'es_favorito' por 'is_featured'
+                        Toggle::make('is_featured') 
+                        ->label('Es Favorito')// Cambié 'es_favorito' por 'is_featured'
                         ->required()
                         ->default('true'),
-                        Toggle::make('on_sale') // Cambié 'vendido' por 'on_sale'
+                        Toggle::make('on_sale')
+                        ->label('Vendido') // Cambié 'vendido' por 'on_sale'
                         ->required()
                         ->default('true'),
                     ])                    
@@ -116,27 +128,36 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
+                ->label('Nombre')
                 ->searchable(),
 
                 TextColumn::make('category.name')
+                ->label('Colegio')
                 ->sortable(),
                 TextColumn::make('price')
+                ->label('Precio')
                 ->money('USD')
                 ->sortable(),
                 IconColumn::make('is_featured')
+                ->label('Es Favorito')
                 ->boolean(),
                 IconColumn::make('on_sale')
+                ->label('Vendido')
                 ->boolean(),
                 IconColumn::make('in_stock')
+                ->label('En Stock')
                 ->boolean(),
                 IconColumn::make('is_active')
+                ->label('Esta Activo')
                 ->boolean(),
 
                 TextColumn::make('created_at')
+                ->label('Creado en')
                 ->dateTime()
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                ->label('Editado en')
                 ->dateTime()
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true)

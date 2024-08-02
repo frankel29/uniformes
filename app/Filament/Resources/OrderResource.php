@@ -52,14 +52,6 @@ class OrderResource extends Resource
                             ->searchable()
                             ->preload()
                             ->required(),
-                        
-                        Select::make('payment_method')
-                            ->label('Método de pago')
-                            ->options([
-                                'stripe' => 'Stripe',
-                                'cod' => 'Contra reembolso'
-                            ])
-                            ->required(),
         
                         Select::make('payment_status')
                             ->label('Estado de pago')
@@ -80,43 +72,29 @@ class OrderResource extends Resource
                                 'new' => 'Nuevo',
                                 'processing' => 'Procesando',
                                 'delivered' => 'Entregado',
-                                'shipped' => 'Enviado',
                                 'cancelled' => 'Cancelado'
                             ])
                             ->colors([
                                 'new' => 'info',
                                 'processing' => 'warning',
                                 'delivered' => 'success',
-                                'shipped' => 'success',
                                 'cancelled' => 'danger'
                             ])
                             ->icons([
                                 'new' => 'heroicon-m-sparkles',
                                 'processing' => 'heroicon-m-arrow-path',
                                 'delivered' => 'heroicon-m-truck',
-                                'shipped' => 'heroicon-m-check-badge',
                                 'cancelled' => 'heroicon-m-x-circle'
                             ]),
         
                         Select::make('currency')
                             ->label('Moneda')
                             ->options([
-                                'inr' => 'INR',
                                 'usd' => 'USD',
                                 'eur' => 'EUR',
-                                'gbp' => 'GBP'
                             ])
                             ->default('usd')
                             ->required(),
-        
-                        Select::make('shipping_method')
-                            ->label('Método de envío')
-                            ->options([
-                                'fedex' => 'FedEx',
-                                'ups' => 'UPS',
-                                'dhl' => 'DHL',
-                                'usps' => 'USPS'
-                            ]),
         
                         Textarea::make('notes')
                             ->label('Notas')
@@ -194,48 +172,47 @@ class OrderResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('user.name') 
-                ->label('Customer')
+                ->label('Cliente')
                 ->sortable()
                 ->searchable(),
 
-                TextColumn::make('grand_total') 
+                TextColumn::make('grand_total')
+                ->label('Total') 
                 ->numeric()
                 ->sortable()
                 ->money('USD'),
 
-                TextColumn::make('payment_method') 
-                ->sortable()
-                ->searchable(),
 
                 TextColumn::make('payment_status') 
+                ->label('Estado del pago')
                 ->sortable()
                 ->searchable(),
 
                 TextColumn::make('currency') 
+                ->label('Moneda')
                 ->sortable()
                 ->searchable(),
 
-                TextColumn::make('shipping_method') 
-                ->sortable()
-                ->searchable(),
 
                 SelectColumn::make('status')
+                ->label('Estado')
                 ->options([
                     'new'=> 'Nuevo',
                     'processing'=>'Procesando',
                     'delivered'=>'Entregado',
-                    'shipped'=>'Enviado',
                     'cancelled'=>'Cancelado'
                 ])
                 ->sortable()
                 ->searchable(),
 
                 TextColumn::make('created_at') 
+                ->label('Creado en')
                 ->dateTime()
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('update_at') 
+                ->label('Editado en')
                 ->dateTime()
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),

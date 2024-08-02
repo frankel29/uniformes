@@ -42,6 +42,7 @@ class CategoryResource extends Resource
             Section::make([
                 Grid::make()->schema([
                     TextInput::make('name')
+                        ->label('Nombre')
                         ->required()
                         ->maxLength(255)
                         ->live(onBlur: true)
@@ -57,10 +58,12 @@ class CategoryResource extends Resource
                         ->unique(Category::class, 'slug', ignoreRecord: true),
                     
                     FileUpload::make('image')
+                        ->label('Imagen')
                         ->image()
                         ->directory('categories'),
 
                     Toggle::make('is_active')
+                        -> label('Esta activo')
                         ->required()
                         ->default(true),
                 ]),
@@ -73,17 +76,21 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label('Nombre')
                     ->searchable(),
                 TextColumn::make('slug')
                     ->searchable(),
                 ImageColumn::make('image'),
                 IconColumn::make('is_active')
+                    ->label('Esta Activo')
                     ->boolean(),
                 TextColumn::make('created_at')
+                    ->label('Creado en')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label('Editado en')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
