@@ -22,8 +22,11 @@ use App\Http\Controllers\ApiController;
 // Rutas API
 Route::prefix('api')->group(function () {
     Route::get('/usuarios', [ApiController::class, 'getUsers']);
+    Route::get('/usuarios/{id}', [ApiController::class, 'getUserById']);
     Route::get('/colegios', [ApiController::class, 'getCategories']);
+    Route::get('/colegios/{name}', [ApiController::class, 'getCategoryByName']);
     Route::get('/uniformes', [ApiController::class, 'getProducts']);
+    Route::get('/uniformes/{categoryName}', [ApiController::class, 'getProductsByCategoryName']);
 });
 
 // Rutas principales
