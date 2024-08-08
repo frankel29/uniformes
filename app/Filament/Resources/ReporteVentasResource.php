@@ -9,6 +9,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\SelectColumn;
+use Illuminate\Support\Facades\DB;
 
 class ReporteVentasResource extends Resource
 {
@@ -77,7 +78,11 @@ class ReporteVentasResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-            ]);
+            ])
+            ->contentFooter(function () {
+                $totalSales = Order::sum('grand_total');
+                return view('filament.tables.total', compact('totalSales'));
+            });
     }
 
     public static function getPages(): array
