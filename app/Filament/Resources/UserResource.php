@@ -32,18 +32,22 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
+                Forms\Components\TextInput::make('name')->required()
+                ->label('Nombre'),
 
                 Forms\Components\TextInput::make('email')->label('Email Address')
+                ->label('Correo Electronico')
                 ->email()
                 ->maxlength(255)
                 ->unique(ignoreRecord: true)
                 ->required(),
 
                 Forms\Components\DateTimePicker::make('email_verified_at')->label('Email Verified At')
+                ->label('Verificación de Correo Electronico')
                 ->default(now()),
 
                 Forms\Components\TextInput::make('password')->password()
+                ->label('Contraseña')
                 ->dehydrated(fn ($state) => filled($state))
                 ->required(fn ($livewire): bool => $livewire instanceof CreateUser || $livewire instanceof EditUser),
             ]);
@@ -54,16 +58,19 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                ->label('Nombre')
                 ->searchable(),
 
                 Tables\Columns\TextColumn::make('email')
                 ->searchable(),
 
                 Tables\Columns\TextColumn::make('email_verified_at')
+                ->label('Verificacion del Correo Electronico')
                 ->dateTime()
                 ->sortable(),
 
                 Tables\Columns\TextColumn::make('created_at')
+                ->label('Creado en')
                 ->dateTime()
                 ->sortable(),
             ])
