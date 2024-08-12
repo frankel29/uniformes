@@ -61,7 +61,7 @@ class ApiController extends Controller
     }
 
 
-        // Obtener categorías por parte del nombre
+        // Obtener colegios por parte del nombre
         public function getCategoryByName($name)
         {
             $categories = Category::where('name', 'LIKE', '%' . $name . '%')
