@@ -21,7 +21,7 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
     protected static ?int $navigationSort = 1;
-
+    protected static ?string $navigationLabel = 'Usuarios';
 
     protected static ?string $recordTitleAttribute = 'name';
 
@@ -65,7 +65,7 @@ class UserResource extends Resource
                 ->searchable(),
 
                 Tables\Columns\TextColumn::make('email_verified_at')
-                ->label('Verificacion del Correo Electronico')
+                ->label('Verificacion Correo Electronico')
                 ->dateTime()
                 ->sortable(),
 

@@ -15,7 +15,7 @@ class ReporteVentasResource extends Resource
 {
     protected static ?string $model = Order::class;
 
-    protected static ?string $navigationGroup = 'Ventas';
+    protected static ?string $navigationGroup = 'Reportes';
     
     protected static ?string $navigationLabel = 'Reporte de Ventas';
 
