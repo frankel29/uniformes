@@ -25,7 +25,7 @@
                   </div>
                 </td>
                 <td class="py-4">
-                  {{ Number::currency($item['unit_amount'], 'INR') }}
+                  {{ Number::currency($item['unit_amount'], 'USD') }}
                 </td>
                 <td class="py-4">
                   <div class="flex items-center">
@@ -35,7 +35,7 @@
                   </div>
                 </td>
                 <td class="py-4">
-                  {{ Number::currency($item['total_amount'], 'INR') }}
+                  {{ Number::currency($item['total_amount'], 'USD') }}
                 </td>
                 <td>
                   <button wire:click='removeItem({{ $item["product_id"] }})' class="bg-slate-300 border-2 border-slate-400 rounded-lg px-3 py-1 hover:bg-red-500 hover:text-white 
@@ -56,20 +56,20 @@
           <h2 class="text-lg font-semibold mb-4">Suma</h2>
           <div class="flex justify-between mb-2">
             <span>Subtotal</span>
-            <span>{{ Number::currency($grand_total, 'INR') }}</span>
+            <span>{{ Number::currency($grand_total, 'USD') }}</span>
           </div>
           <div class="flex justify-between mb-2">
             <span>Taxes</span>
-            <span>{{ Number::currency(0, 'INR') }}</span>
+            <span>{{ Number::currency(0, 'USD') }}</span>
           </div>
           <div class="flex justify-between mb-2">
             <span>Shipping</span>
-            <span>{{ Number::currency(0, 'INR') }}</span>
+            <span>{{ Number::currency(0, 'USD') }}</span>
           </div>
           <hr class="my-2">
           <div class="flex justify-between mb-2">
             <span class="font-semibold">Gran Total</span>
-            <span class="font-semibold">{{ Number::currency($grand_total, 'INR') }}</span>
+            <span class="font-semibold">{{ Number::currency($grand_total, 'USD') }}</span>
           </div>
           @if($cart_items)
           <a href='/checkout' class="bg-blue-500 block  text-center text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</a>
