@@ -65,7 +65,7 @@ class UserResource extends Resource
                 ->searchable(),
 
                 Tables\Columns\TextColumn::make('email_verified_at')
-                ->label('Verificacion del Correo Electronico')
+                ->label('Verificacion de Correo Electronico')
                 ->dateTime()
                 ->sortable(),
 
