@@ -18,6 +18,7 @@ use App\Livewire\Auth\LoginPage;
 use App\Livewire\Auth\RegisterPage;
 use App\Livewire\Auth\ForgotPasswordPage;
 use App\Http\Controllers\ReporteVentasController;
+use App\Http\Controllers\UserReportController;
 
 Route::get('/', HomePage::class);
 Auth::routes();
@@ -43,6 +44,8 @@ Route::get('/products/{slug}', ProductDetailPage::class)->name('product.detail')
 //Ruta para generar un PDF
 Route::get('/reporte-ventas/descargar', [ReporteVentasController::class, 'descargarPDF'])->name('reporte-ventas.descargar');
 
+//Ruta para PDF de usuarios
+Route::get('/user-report/download', [UserReportController::class, 'download'])->name('user-report.download');
 
 Route::middleware('guest')->group(function (){
     Route::get('/login', LoginPage::class)->name('login');
