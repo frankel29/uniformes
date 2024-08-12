@@ -17,6 +17,7 @@ use App\Livewire\MyOrdersDetailPage;
 use App\Livewire\Auth\LoginPage;
 use App\Livewire\Auth\RegisterPage;
 use App\Livewire\Auth\ForgotPasswordPage;
+use App\Http\Controllers\ReporteVentasController;
 use App\Http\Controllers\ApiController;
 
 // Rutas API
@@ -50,6 +51,9 @@ Route::get('/cart', CartPage::class)->name('cart');
 
 // Ruta a ProductDetailPage
 Route::get('/products/{slug}', ProductDetailPage::class)->name('product.detail');
+
+// Ruta para generar un PDF
+Route::get('/reporte-ventas/descargar', [ReporteVentasController::class, 'descargarPDF'])->name('reporte-ventas.descargar');
 
 // Rutas de autenticación
 Route::middleware('guest')->group(function () {
