@@ -5,41 +5,42 @@ namespace App\Helpers;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Product;
 use Livewire\Component;
-use App\Helpers\CartManagement;
 
 class CartManagement {
     // Add item to cart
-    static public function addItemToCart($product_id) {
-        $cart_items = self::getCartItemsFromCookie();
+static public function addItemToCart($product_id) {
+    $cart_items = self::getCartItemsFromCookie();
 
-        $existing_item = null;
+    $existing_item = null;
 
-        foreach ($cart_items as $key => $item) {
-            if ($item['product_id'] == $product_id) {
-                $existing_item = $key;
-                break;
-            }
+    foreach ($cart_items as $key => $item) {
+        if ($item['product_id'] == $product_id) {
+            $existing_item = $key;
+            break;
         }
-
-        if ($existing_item !== null) {
-            $cart_items[$existing_item]['quantity']++;
-            $cart_items[$existing_item]['total_amount'] = $cart_items[$existing_item]['quantity'] * $cart_items[$existing_item]['unit_amount'];
-        } else {
-            $product = Product::where('id', $product_id)->first(['id', 'name', 'price', 'images']);
-            if ($product) {
-                $cart_items[] = [
-                    'product_id' => $product_id,
-                    'name' => $product->name,
-                    //'image' => $product->images[0],
-                    'quantity' => 1,
-                    'unit_amount' => $product->price,
-                    'total_amount' => $product->price,
-                ];
-            }
-        }
-        self::addCartItemsToCookie($cart_items);
-        return count($cart_items);
     }
+
+    if ($existing_item !== null) {
+        $cart_items[$existing_item]['quantity']++;
+        $cart_items[$existing_item]['total_amount'] = $cart_items[$existing_item]['quantity'] * $cart_items[$existing_item]['unit_amount'];
+    } else {
+        $product = Product::where('id', $product_id)->first(['id', 'name', 'price', 'images']);
+        if ($product) {
+            $cart_items[] = [
+                'product_id' => $product_id,
+                'name' => $product->name,
+                //'image' => $product->images[0], // Si deseas agregar imágenes más adelante
+                'quantity' => 1,
+                'unit_amount' => $product->price,
+                'total_amount' => $product->price,
+            ];
+        }
+    }
+
+    self::addCartItemsToCookie($cart_items);
+    return $cart_items; // Asegúrate de retornar los ítems actualizados
+}
+
 
     // Add item to cart with qty
     static public function addItemToCartWithQty($product_id, $qty = 1) {
@@ -66,7 +67,7 @@ class CartManagement {
                     //'image' => $product->images[0],
                     'quantity' => $qty,
                     'unit_amount' => $product->price,
-                    'total_amount' => $product->price,
+                    'total_amount' => $product->price * $qty,
                 ];
             }
         }
@@ -136,6 +137,9 @@ class CartManagement {
 
     // Calculate grand total
     static public function calculateGrandTotal($items) {
-        return array_sum(array_column($items, 'total_amount'));
+        if (is_array($items)) {
+            return array_sum(array_column($items, 'total_amount'));
+        }
+        return 0;
     }
 }
