@@ -43,23 +43,22 @@
         <div class="justify-center max-w-6xl px-4 py-4 mx-auto lg:py-0">
             <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 md:grid-cols-2">
             @foreach ($categories as $category)
-                <div class="bg-white rounded-lg shadow-md dark:bg-gray-800 text-center" wire:key="{{$category->id}}">
-                    <a href="{{ route('products') }}">
-                        @if (filter_var($category->image, FILTER_VALIDATE_URL))
-                            <!-- Si la imagen es una URL completa -->
-                            <img class="h-[10rem] w-[10rem] mx-auto" src="{{ $category->image }}" alt="{{ $category->name }}">
-                        @else
-                            <!-- Si la imagen es una ruta relativa -->
-                            <img class="h-[10rem] w-[10rem] mx-auto" src="{{ asset('storage/' . $category->image) }}"
-                                alt="{{ $category->name }}">
-                        @endif
-                    </a>
-                    <div class="p-5">
-                        <a href="{{ route('products') }}"
-                            class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">{{$category->name}}</a>
-                    </div>
-                </div>
-            @endforeach
+    <div class="bg-white rounded-lg shadow-md dark:bg-gray-800 text-center" wire:key="{{$category->id}}">
+        <a href="{{ route('products') . '?category=' . $category->id }}">
+            @if (filter_var($category->image, FILTER_VALIDATE_URL))
+                <img class="h-[10rem] w-[10rem] mx-auto" src="{{ $category->image }}" alt="{{ $category->name }}">
+            @else
+                <img class="h-[10rem] w-[10rem] mx-auto" src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}">
+            @endif
+        </a>
+        <div class="p-5">
+            <a href="{{ route('products') . '?category=' . $category->id }}"
+               class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">{{ $category->name }}</a>
+        </div>
+    </div>
+@endforeach
+
+
 
             </div>
         </div>
