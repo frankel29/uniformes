@@ -20,9 +20,20 @@ use App\Livewire\Auth\ForgotPasswordPage;
 use App\Http\Controllers\ReporteVentasController;
 use App\Http\Controllers\UserReportController;
 use App\Http\Controllers\CancelledOrdersReportController;
+use App\Http\Controllers\ApiController;
 
 Route::get('/', HomePage::class);
 Auth::routes();
+
+// Rutas API
+Route::prefix('api')->group(function () {
+    Route::get('/usuarios', [ApiController::class, 'getUsers']);
+    Route::get('/usuarios/{id}', [ApiController::class, 'getUserById']);
+    Route::get('/colegios', [ApiController::class, 'getCategories']);
+    Route::get('/colegios/{name}', [ApiController::class, 'getCategoryByName']);
+    Route::get('/uniformes', [ApiController::class, 'getProducts']);
+    Route::get('/uniformes/{categoryName}', [ApiController::class, 'getProductsByCategoryName']);
+});
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
