@@ -20,6 +20,8 @@ use App\Livewire\Auth\ForgotPasswordPage;
 use App\Http\Controllers\ReporteVentasController;
 use App\Http\Controllers\UserReportController;
 use App\Http\Controllers\CancelledOrdersReportController;
+use App\Http\Controllers\OrderController;
+
 
 Route::get('/', HomePage::class);
 Auth::routes();
@@ -50,6 +52,11 @@ Route::get('/user-report/download', [UserReportController::class, 'download'])->
 
 //Reporte ordenes canceladas
 Route::get('/cancelled-orders/download-pdf', [CancelledOrdersReportController::class, 'downloadPdf'])->name('cancelled-orders.downloadPdf');
+
+//Generar PDF orden
+Route::post('/generate-pdf', [OrderController::class, 'generatePDF'])->name('generate.pdf');
+
+
 
 
 Route::middleware('guest')->group(function (){
