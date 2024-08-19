@@ -61,16 +61,16 @@
                         <span>{{ Number::currency($grand_total, 'USD') }}</span>
                     </div>
                     <div class="flex justify-between mb-2">
-                        <span>Taxes</span>
+                        <span>IVA</span>
                         <span>{{ Number::currency(0, 'USD') }}</span>
                     </div>
                     <div class="flex justify-between mb-2">
-                        <span>Shipping</span>
+                        <span>Envio</span>
                         <span>{{ Number::currency(0, 'USD') }}</span>
                     </div>
                     <hr class="my-2">
                     <div class="flex justify-between mb-2">
-                        <span class="font-semibold">Gran Total</span>
+                        <span class="font-semibold">Total</span>
                         <span class="font-semibold">{{ Number::currency($grand_total, 'USD') }}</span>
                     </div>
                     @if(count($cart_items) > 0)
