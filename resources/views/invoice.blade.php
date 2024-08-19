@@ -70,7 +70,7 @@
         <div class="details">
             <p><strong>Cliente:</strong> {{ $first_name }} {{ $last_name }}</p>
             <p><strong>Teléfono:</strong> {{ $phone }}</p>
-            <p><strong>Dirección:</strong> {{ $address }}</p>
+
             <p><strong>Ciudad:</strong> {{ $city }}</p>
         </div>
 
