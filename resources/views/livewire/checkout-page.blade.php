@@ -34,12 +34,6 @@
                             <input class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none" id="phone" name="phone" type="text">
                         </div>
                         <div class="mt-4">
-                            <label class="block text-gray-700 dark:text-white mb-1" for="address">
-                                Dirección
-                            </label>
-                            <input class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none" id="address" name="address" type="text">
-                        </div>
-                        <div class="mt-4">
                             <label class="block text-gray-700 dark:text-white mb-1" for="city">
                                 Ciudad
                             </label>
